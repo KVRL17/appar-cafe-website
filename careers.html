@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Appar Cafe</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .validate {
+        color: red;
+        font-size: 0.9em;
+        display: none;
+    }
+
+    #submitButton:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+</style>
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-phone d-flex align-items-center"><span>+91 9712552425</span></i>
+        <i class="bi bi-clock d-flex align-items-center ms-4"><span>Opens from 6AM - 11PM</span></i>
+      </div>
+
+      <div class="languages d-none d-md-flex align-items-center">
+        <ul>
+          <i class="bi bi-envelope d-flex align-items-center ms-4"><span><a href="#"> &nbsp;apparcafe@gmail.com</a></span></i>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-cente">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a href="index.html"><img src="images/logo.png" style="height: 200px;"/></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="aboutus.html">About Us</a></li>
+          <li><a class="nav-link scrollto" href="menu.html">Menu</a></li>
+          <li><a class="nav-link scrollto" href="catering.html">Catering</a></li>
+          <li><a class="nav-link scrollto" href="booking.html">Reservation</a></li>
+          <li><a class="nav-link scrollto active" href="careers.html">Careers</a></li>
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <li><a class="nav-link scrollto" href="contact.html">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <section id="book-a-table" class="book-a-table section-bg" style="margin-top: 70px;">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Careers</h2>
+        <p>We Require Full Time/Part Time</p>
+      </div>
+
+      <!-- HTML Form -->
+      <form id="applicationForm" onsubmit="return submitApplication()" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+            <!-- Name Field -->
+            <div class="col-md-12 form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" oninput="validateForm()" required>
+                <small id="nameError" class="text-danger" style="display: none;">Please enter at least 4 characters.</small>
+            </div>
+            
+            <!-- Mobile Field -->
+            <div class="col-md-12 form-group mt-3">
+                <label for="mobile">Mobile</label>
+                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Your Mobile" oninput="validateForm()" required>
+                <small id="mobileError" class="text-danger" style="display: none;">Please enter a valid 10-digit mobile number.</small>
+            </div>
+            
+            <!-- Email Field -->
+            <div class="col-md-12 form-group mt-3">
+                <label for="email">E-Mail</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" oninput="validateForm()" required>
+                <small id="emailError" class="text-danger" style="display: none;">Please enter a valid email address.</small>
+            </div>
+            
+            <!-- Select Profile Field -->
+            <div class="col-md-12 form-group mt-3">
+                <label for="profile">Select Profile</label>
+                <select class="form-control" name="profile" id="profile" oninput="validateForm()" required style="background-color: black; color: white;">
+                    <option value="" style="background-color: black; color: white;">Select Profile</option>
+                    <option value="Chefs" style="background-color: black; color: white;">Chefs</option>
+                    <option value="Waiter" style="background-color: black; color: white;">Waiter</option>
+                    <option value="Manager" style="background-color: black; color: white;">Manager</option>
+                </select>
+                <small id="profileError" class="text-danger" style="display: none;">Please select a profile.</small>
+            </div>
+            
+            <!-- Education Field -->
+            <div class="col-md-12 form-group mt-3">
+                <label for="education">Education</label>
+                <input type="text" class="form-control" name="education" id="education" placeholder="Highest Degree or Qualification" oninput="validateForm()" required>
+                <small id="educationError" class="text-danger" style="display: none;">Please enter your education level.</small>
+            </div>
+    
+            <!-- Experience Field -->
+            <div class="col-md-12 form-group mt-3">
+                <label for="experience">Experience (Years)</label>
+                <input type="number" class="form-control" name="experience" id="experience" placeholder="Years of Experience" oninput="validateForm()" required>
+                <small id="experienceError" class="text-danger" style="display: none;">Please enter a valid number of years.</small>
+            </div>
+    
+            <!-- Skills Field -->
+            <div class="col-md-12 form-group mt-3">
+                <label for="skills">Skills</label>
+                <input type="text" class="form-control" name="skills" id="skills" placeholder="Key Skills (e.g., Good Communication Skills)" oninput="validateForm()" required>
+                <small id="skillsError" class="text-danger" style="display: none;">Please enter at least one skill.</small>
+            </div>
+    
+            <!-- Previous Employer Field -->
+            <div class="col-md-12 form-group mt-3">
+                <label for="employer">Previous Employer</label>
+                <input type="text" class="form-control" name="employer" id="employer" placeholder="Last Company Worked At" oninput="validateForm()" required>
+                <small id="employerError" class="text-danger" style="display: none;">Please enter your previous employer's name.</small>
+            </div>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="text-center mt-4">
+            <button type="submit" id="submitButton" class="btn btn-success" disabled>Submit</button>
+        </div>
+    </form>
+
+<!-- Include EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("YOUR_USER_ID"); // Replace "YOUR_USER_ID" with your actual EmailJS User ID
+    })();
+</script>
+
+    </div>
+    </section>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-7 col-md-6">
+            <div class="footer-info">
+              <h3>Appar Cafe</h3>
+              <p>
+                Building Plot # C159, Sector # M10, Abudhabi.
+Behind Phoenix Hospital<br>
+                <strong>Phone:</strong> +91 9712552425<br>
+                <strong>Email:</strong> apparcafe@gmail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Menu</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Catering</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Reservation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Menu</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Breakfast</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Snacks</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Dinner</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">On Special Day</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Appar Cafe</span></strong>. All Rights Reserved <span id="year"></span>
+    </div>
+    
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+<script>
+    emailjs.init("YOUR_USER_ID"); // Initialize EmailJS with your user ID
+
+    function validateName() {
+        const name = document.getElementById("name").value;
+        const nameError = document.getElementById("nameError");
+        if (name.length >= 4) {
+            nameError.style.display = "none";
+            return true;
+        } else {
+            nameError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateMobile() {
+        const mobile = document.getElementById("mobile").value;
+        const mobileError = document.getElementById("mobileError");
+        const mobileRegex = /^\d{10}$/;
+        if (mobileRegex.test(mobile)) {
+            mobileError.style.display = "none";
+            return true;
+        } else {
+            mobileError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateEmail() {
+        const email = document.getElementById("email").value;
+        const emailError = document.getElementById("emailError");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(email)) {
+            emailError.style.display = "none";
+            return true;
+        } else {
+            emailError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateProfile() {
+        const profile = document.getElementById("profile").value;
+        const profileError = document.getElementById("profileError");
+        if (profile.trim()) {
+            profileError.style.display = "none";
+            return true;
+        } else {
+            profileError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateEducation() {
+        const education = document.getElementById("education").value;
+        const educationError = document.getElementById("educationError");
+        if (education.length > 0) {
+            educationError.style.display = "none";
+            return true;
+        } else {
+            educationError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateExperience() {
+        const experience = parseInt(document.getElementById("experience").value, 10);
+        const experienceError = document.getElementById("experienceError");
+        if (!isNaN(experience) && experience >= 0) {
+            experienceError.style.display = "none";
+            return true;
+        } else {
+            experienceError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateSkills() {
+        const skills = document.getElementById("skills").value;
+        const skillsError = document.getElementById("skillsError");
+        if (skills.trim().length > 0) {
+            skillsError.style.display = "none";
+            return true;
+        } else {
+            skillsError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateEmployer() {
+        const employer = document.getElementById("employer").value;
+        const employerError = document.getElementById("employerError");
+        if (employer.trim().length > 0) {
+            employerError.style.display = "none";
+            return true;
+        } else {
+            employerError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateDropdown() {
+        const position = document.getElementById("position").value;
+        const positionError = document.getElementById("positionError");
+        if (position !== "Select Position") {
+            positionError.style.display = "none";
+            return true;
+        } else {
+            positionError.style.display = "block";
+            return false;
+        }
+    }
+
+    function validateForm() {
+        return (
+            validateName() &&
+            validateMobile() &&
+            validateEmail() &&
+            validateProfile() &&
+            validateEducation() &&
+            validateExperience() &&
+            validateSkills() &&
+            validateEmployer() &&
+            validateDropdown()
+        );
+    }
+
+    function submitApplication() {
+        if (!validateForm()) {
+            return false;
+        }
+
+        // Gather form data
+        const formData = {
+            name: document.getElementById("name").value,
+            mobile: document.getElementById("mobile").value,
+            email: document.getElementById("email").value,
+            profile: document.getElementById("profile").value,
+            education: document.getElementById("education").value,
+            experience: document.getElementById("experience").value,
+            skills: document.getElementById("skills").value,
+            employer: document.getElementById("employer").value,
+            position: document.getElementById("position").value,
+        };
+
+        // Send the email using EmailJS
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+            .then(function(response) {
+                alert("Application sent successfully!");
+                document.getElementById("applicationForm").reset();
+            }, function(error) {
+                alert("Failed to send application. Please try again later.");
+                console.error("EmailJS error:", error);
+            });
+
+        return false; // Prevent default form submission
+    }
+</script>
+</body>
+
+</html>

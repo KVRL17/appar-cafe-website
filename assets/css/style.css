@@ -209,6 +209,7 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Book a table button Menu
 --------------------------------------------------------------*/
+/* Default styling for all screen sizes */
 .book-a-table-btn {
   margin: 0 0 0 15px;
   border: 2px solid #cda45e;
@@ -222,15 +223,35 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 
+/* Hover effect */
 .book-a-table-btn:hover {
   background: #cda45e;
   color: #fff;
 }
 
+/* Tablet and smaller screens */
 @media (max-width: 992px) {
   .book-a-table-btn {
     margin: 0 15px 0 0;
     padding: 8px 20px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 576px) {
+  .book-a-table-btn {
+    font-size: 12px;
+    padding: 6px 18px;
+    margin: 0 10px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+  .book-a-table-btn {
+    font-size: 11px;
+    padding: 5px 15px;
+    margin: 0 5px;
   }
 }
 
@@ -499,7 +520,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h1 {
   margin: 0;
-  font-size: 63px;
+  font-size: 60px;
   font-weight: 700;
   line-height: 56px;
   color: #fff;
