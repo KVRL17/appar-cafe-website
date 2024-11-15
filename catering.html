@@ -120,7 +120,147 @@
       </div>
 
     </div>
+
+    <br />
+    
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Catering</h2>
+        <p>We provide catering Services To Any Event</p>
+      </div>
+
+    <!-- Catering Inquiry Form HTML -->
+<form id="cateringForm" onsubmit="return submitCateringForm()" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+  <div class="row">
+      <!-- Customer Name -->
+      <div class="col-md-12 form-group">
+          <label for="customerName">Customer Name</label>
+          <input type="text" name="customerName" class="form-control" id="customerName" placeholder="Your Name" oninput="validateForm()" required>
+          <small id="customerNameError" class="text-danger" style="display: none;">Please enter at least 4 characters.</small>
+      </div>
+      
+      <!-- Mobile Number -->
+      <div class="col-md-12 form-group mt-3">
+          <label for="customerMobile">Mobile Number</label>
+          <input type="text" class="form-control" name="customerMobile" id="customerMobile" placeholder="Your Mobile Number" oninput="validateForm()" required>
+          <small id="customerMobileError" class="text-danger" style="display: none;">Please enter a valid 10-digit mobile number.</small>
+      </div>
+      
+      <!-- Email -->
+      <div class="col-md-12 form-group mt-3">
+          <label for="customerEmail">E-Mail</label>
+          <input type="email" class="form-control" name="customerEmail" id="customerEmail" placeholder="Your Email" oninput="validateForm()" required>
+          <small id="customerEmailError" class="text-danger" style="display: none;">Please enter a valid email address.</small>
+      </div>
+      
+      <!-- Event Type -->
+      <div class="col-md-12 form-group mt-3">
+          <label for="eventType">Event Type</label>
+          <select class="form-control" name="eventType" id="eventType" oninput="validateForm()" required>
+              <option value="">Select Event Type</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Corporate">Corporate</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Private Event">Private Event</option>
+          </select>
+          <small id="eventTypeError" class="text-danger" style="display: none;">Please select an event type.</small>
+      </div>
+      
+      <!-- Event Date -->
+      <div class="col-md-12 form-group mt-3">
+          <label for="eventDate">Event Date</label>
+          <input type="date" class="form-control" name="eventDate" id="eventDate" oninput="validateForm()" required>
+          <small id="eventDateError" class="text-danger" style="display: none;">Please select a valid date.</small>
+      </div>
+      
+      <!-- Event Time -->
+      <div class="col-md-12 form-group mt-3">
+          <label for="eventTime">Event Time</label>
+          <input type="time" class="form-control" name="eventTime" id="eventTime" oninput="validateForm()" required>
+          <small id="eventTimeError" class="text-danger" style="display: none;">Please select a valid time.</small>
+      </div>
+      
+      <!-- Guest Count -->
+      <div class="col-md-12 form-group mt-3">
+          <label for="guestCount">Guest Count</label>
+          <input type="number" class="form-control" name="guestCount" id="guestCount" placeholder="Number of Guests" oninput="validateForm()" required>
+          <small id="guestCountError" class="text-danger" style="display: none;">Please enter a valid number of guests.</small>
+      </div>
+      
+      <!-- Special Requests -->
+      <div class="col-md-12 form-group mt-3">
+          <label for="specialRequests">Special Requests</label>
+          <textarea class="form-control" name="specialRequests" id="specialRequests" rows="3" placeholder="Additional details or special requests" oninput="validateForm()"></textarea>
+      </div>
+  </div>
+  
+  <div class="text-center mt-4">
+      <button type="submit" id="submitButton" class="btn btn-success" disabled>Submit</button>
+  </div>
+</form>
+
+<script>
+  emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+
+  function validateForm() {
+      const isValid =
+          validateField("customerName", 4, "customerNameError") &&
+          validateField("customerMobile", /^\d{10}$/, "customerMobileError") &&
+          validateField("customerEmail", /^[^\s@]+@[^\s@]+\.[^\s@]+$/, "customerEmailError") &&
+          validateDropdown("eventType", "eventTypeError") &&
+          validateField("eventDate", /^\d{4}-\d{2}-\d{2}$/, "eventDateError") &&
+          validateField("eventTime", /^\d{2}:\d{2}$/, "eventTimeError") &&
+          validateField("guestCount", /^\d+$/, "guestCountError");
+
+      document.getElementById("submitButton").disabled = !isValid;
+      return isValid;
+  }
+
+  function validateField(fieldId, condition, errorId) {
+      const value = document.getElementById(fieldId).value;
+      const isValid = typeof condition === "function" ? condition(value) : new RegExp(condition).test(value);
+      document.getElementById(errorId).style.display = isValid ? "none" : "block";
+      return isValid;
+  }
+
+  function validateDropdown(fieldId, errorId) {
+      return validateField(fieldId, (value) => value.trim() !== "", errorId);
+  }
+
+  function submitCateringForm() {
+      if (!validateForm()) return false;
+
+      const formData = {
+          customerName: document.getElementById("customerName").value,
+          customerMobile: document.getElementById("customerMobile").value,
+          customerEmail: document.getElementById("customerEmail").value,
+          eventType: document.getElementById("eventType").value,
+          eventDate: document.getElementById("eventDate").value,
+          eventTime: document.getElementById("eventTime").value,
+          guestCount: document.getElementById("guestCount").value,
+          specialRequests: document.getElementById("specialRequests").value,
+      };
+
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+          .then(() => {
+              alert("Catering inquiry submitted successfully!");
+              document.getElementById("cateringForm").reset();
+              document.getElementById("submitButton").disabled = true;
+          })
+          .catch((error) => {
+              alert("Failed to send inquiry. Please check your EmailJS configuration and try again.");
+              console.error("EmailJS Error:", error);
+          });
+
+      return false;
+  }
+</script>
+</div>
+
   </section>
+
+
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
