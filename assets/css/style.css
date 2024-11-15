@@ -212,7 +212,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Default styling for all screen sizes */
 /* Default Styles */
 .book-a-table-btn {
-  margin: 0 0 0 15px;
+  margin: 0 10px 0 15px;
   border: 2px solid #cda45e;
   color: #fff;
   border-radius: 50px;
@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Tablets and Smaller Screens */
 @media (max-width: 992px) {
   .book-a-table-btn {
-    margin: 0 15px 0 0;
+    margin: 0 10px 0 0;
     padding: 8px 20px;
     font-size: 14px;
   }
@@ -258,17 +258,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile Screens */
 @media (max-width: 576px) {
   .book-a-table-btn {
-    font-size: 12px;
-    padding: 6px 18px;
-    margin: 0 10px;
+    font-size: 13px;
+    padding: 7px 18px;
+    margin: 0 8px;
   }
 }
 
 /* Extra Small Screens */
 @media (max-width: 400px) {
   .book-a-table-btn {
-    font-size: 11px;
-    padding: 5px 15px;
+    font-size: 12px;
+    padding: 6px 15px;
     margin: 0 5px;
   }
 }
