@@ -111,169 +111,154 @@
       </div>
 
       <!-- Application Form HTML -->
-<form id="applicationForm" onsubmit="return submitApplication()" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
-  <div class="row">
-      <!-- Name Field -->
-      <div class="col-md-12 form-group">
-          <label for="name">Name</label>
-          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" oninput="validateForm()" required>
-          <small id="nameError" class="text-danger" style="display: none;">Please enter at least 4 characters.</small>
+    <div class="container mt-5">
+        <h1 class="text-center">Career Application Form</h1>
+        <form 
+  id="applicationForm" 
+  action="https://formsubmit.co/apparcafe@gmail.com" 
+  method="POST" 
+  enctype="multipart/form-data"
+  onsubmit="return updateSubject()"
+>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" id="subject" value="New Application Form from Submission">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://">
+
+  <div class="row g-3">
+    <!-- Name Input -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="name" name="Name" placeholder="Your Name">
+        <label for="name" style="color: black;">Your Name</label>
       </div>
-      
-      <!-- Mobile Field -->
-      <div class="col-md-12 form-group mt-3">
-          <label for="mobile">Mobile</label>
-          <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Your Mobile" oninput="validateForm()" required>
-          <small id="mobileError" class="text-danger" style="display: none;">Please enter a valid 10-digit mobile number.</small>
+      <small class="text-danger" id="nameError"></small>
+    </div>
+    
+    <!-- Email Input -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="email" class="form-control" id="email" name="Email" placeholder="Your Email">
+        <label for="email" style="color: black;">Your Email</label>
       </div>
-      
-      <!-- Email Field -->
-      <div class="col-md-12 form-group mt-3">
-          <label for="email">E-Mail</label>
-          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" oninput="validateForm()" required>
-          <small id="emailError" class="text-danger" style="display: none;">Please enter a valid email address.</small>
+      <small class="text-danger" id="emailError"></small>
+    </div>
+    
+    <!-- Phone Input -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="phone" name="Phone" placeholder="Your Phone">
+        <label for="phone" style="color: black;">Your Phone</label>
       </div>
-      
-      <!-- Profile Field -->
-      <div class="col-md-12 form-group mt-3">
-          <label for="profile">Select Profile</label>
-          <select class="form-control" name="profile" id="profile" oninput="validateForm()" required>
-              <option value="">Select Profile</option>
-              <option value="Chefs">Chefs</option>
-              <option value="Waiter">Waiter</option>
-              <option value="Manager">Manager</option>
-          </select>
-          <small id="profileError" class="text-danger" style="display: none;">Please select a profile.</small>
+      <small class="text-danger" id="phoneError"></small>
+    </div>
+    
+    <!-- Post Applied For Input -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="post" name="Post Applied For" placeholder="Your Post">
+        <label for="post" style="color: black;">Post Applied For</label>
       </div>
-      
-      <!-- Additional Fields -->
-      <div class="col-md-12 form-group mt-3">
-          <label for="education">Education</label>
-          <input type="text" class="form-control" name="education" id="education" placeholder="Highest Degree or Qualification" oninput="validateForm()" required>
-          <small id="educationError" class="text-danger" style="display: none;">Please enter your education level.</small>
+      <small class="text-danger" id="postError"></small>
+    </div>
+    
+    <!-- Designation Input -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="designation" name="Designation" placeholder="Your Designation">
+        <label for="designation" style="color: black;">Current Designation</label>
       </div>
-      
-      <div class="col-md-12 form-group mt-3">
-          <label for="experience">Experience</label>
-          <input type="number" class="form-control" name="experience" id="experience" placeholder="Years of Experience" oninput="validateForm()" required>
-          <small id="experienceError" class="text-danger" style="display: none;">Please enter a valid number of years.</small>
+      <small class="text-danger" id="designationError"></small>
+    </div>
+    
+    <!-- Company Input -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="company" name="Company" placeholder="Your Company">
+        <label for="company" style="color: black;">Current Company</label>
       </div>
-      
-      <div class="col-md-12 form-group mt-3">
-          <label for="skills">Skills</label>
-          <input type="text" class="form-control" name="skills" id="skills" placeholder="Your Key Skills" oninput="validateForm()" required>
-          <small id="skillsError" class="text-danger" style="display: none;">Please enter your skills.</small>
+      <small class="text-danger" id="companyError"></small>
+    </div>
+    
+    <!-- Skills Input -->
+    <div class="col-12">
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Your Skills" id="skills" name="Skills" style="height: 100px"></textarea>
+        <label for="skills" style="color: black;">Your Skills</label>
       </div>
-      
-      <div class="col-md-12 form-group mt-3">
-          <label for="employer">Previous Employer</label>
-          <input type="text" class="form-control" name="employer" id="employer" placeholder="Previous Employer" oninput="validateForm()" required>
-          <small id="employerError" class="text-danger" style="display: none;">Please enter the name of your previous employer.</small>
+      <small class="text-danger" id="skillsError"></small>
+    </div>
+    
+    <!-- Resume Upload -->
+    <div class="col-12">
+      <div class="form-floating">
+        <input type="file" class="form-control" id="resume" name="Resume" accept=".pdf,.doc,.docx">
+        <label for="resume" style="color: black;">Drop Your Resume</label>
       </div>
-  </div>
-  
-  <div class="text-center mt-4">
-      <button type="submit" id="submitButton" class="btn btn-success" disabled>Submit</button>
+      <small class="text-danger" id="resumeError"></small>
+    </div>
+    
+    <!-- Submit Button -->
+    <div class="col-12">
+      <button class="w-100 py-3" type="submit" id="applyNow" disabled style="background-color: #cda45e;">Apply Now</button>
+    </div>
   </div>
 </form>
 
-<!-- Include EmailJS SDK -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  emailjs.init(""); // Replace with your EmailJS User ID
+  const form = document.getElementById('applicationForm');
+  const fields = ['name', 'email', 'phone', 'post', 'designation', 'company', 'skills', 'resume'];
+  const applyNowButton = document.getElementById('applyNow');
 
-  function validateForm() {
-      const isValid =
-          validateName() &&
-          validateMobile() &&
-          validateEmail() &&
-          validateProfile() &&
-          validateEducation() &&
-          validateExperience() &&
-          validateSkills() &&
-          validateEmployer();
+  const patterns = {
+    name: /^[a-zA-Z\s]{3,}$/,
+    email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+    phone: /.+/,
+    post: /.+/,
+    designation: /.+/,
+    company: /.+/,
+    skills: /.+/,
+    resume: /.+/
+  };
 
-      document.getElementById("submitButton").disabled = !isValid;
-      return isValid;
+  function validateField(field) {
+    const input = document.getElementById(field);
+    const errorElement = document.getElementById(`${field}Error`);
+    if (patterns[field].test(input.value)) {
+      errorElement.textContent = '';
+      return true;
+    } else {
+      errorElement.textContent = `Please enter a valid ${field.replace('_', ' ')}.`;
+      return false;
+    }
   }
 
-  function displayError(elementId, condition, messageId) {
-      const element = document.getElementById(elementId);
-      const message = document.getElementById(messageId);
-      if (element && message) {
-          if (condition) {
-              message.style.display = "none";
-              return true;
-          } else {
-              message.style.display = "block";
-              return false;
-          }
-      }
-      return false; // In case element or message is not found
+  function checkAllFields() {
+    let allValid = true;
+    fields.forEach((field) => {
+      const valid = validateField(field);
+      if (!valid) allValid = false;
+    });
+    applyNowButton.disabled = !allValid;
   }
 
-  function validateName() {
-      return displayError("name", document.getElementById("name").value.length >= 4, "nameError");
+  fields.forEach((field) => {
+    const input = document.getElementById(field);
+    input.addEventListener('input', () => {
+      validateField(field);
+      checkAllFields();
+    });
+  });
+
+  function updateSubject() {
+    const name = document.getElementById('name').value.trim();
+    const subjectField = document.getElementById('subject');
+    if (name) {
+      subjectField.value = `New Application From ${name}`;
+    }
+    return true;
   }
-
-  function validateMobile() {
-      return displayError("mobile", /^\d{10}$/.test(document.getElementById("mobile").value), "mobileError");
-  }
-
-  function validateEmail() {
-      return displayError("email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("email").value), "emailError");
-  }
-
-  function validateProfile() {
-      return displayError("profile", document.getElementById("profile").value.trim() !== "", "profileError");
-  }
-
-  function validateEducation() {
-      return displayError("education", document.getElementById("education").value.trim() !== "", "educationError");
-  }
-
-  function validateExperience() {
-      return displayError("experience", document.getElementById("experience").value.trim() !== "", "experienceError");
-  }
-
-  function validateSkills() {
-      return displayError("skills", document.getElementById("skills").value.trim() !== "", "skillsError");
-  }
-
-  function validateEmployer() {
-      return displayError("employer", document.getElementById("employer").value.trim() !== "", "employerError");
-  }
-
-  function submitApplication() {
-      if (!validateForm()) {
-          return false;
-      }
-
-      const formData = {
-          name: document.getElementById("name").value,
-          mobile: document.getElementById("mobile").value,
-          email: document.getElementById("email").value,
-          profile: document.getElementById("profile").value,
-          education: document.getElementById("education").value,
-          experience: document.getElementById("experience").value,
-          skills: document.getElementById("skills").value,
-          employer: document.getElementById("employer").value,
-      };
-
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
-          .then(function() {
-              alert("Application submitted successfully!");
-              document.getElementById("applicationForm").reset();
-              document.getElementById("submitButton").disabled = true;
-          })
-          .catch(function(error) {
-              alert("Failed to send application. Please check your EmailJS configuration and try again.");
-              console.error("EmailJS Error:", error);
-          });
-
-      return false; // Prevent actual form submission
-  }
-</script>
+</script>        
 
     </div>
     </section>
